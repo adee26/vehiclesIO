@@ -42,29 +42,13 @@ public class FileService {
         return brandNumber;
     }
 
-    public static void readFile(String path) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
-            StringBuffer stringBuffer = new StringBuffer();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                stringBuffer.append(line);
-                stringBuffer.append("\n");
-                System.out.println(line);
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
    public void readFileArray(String path){
         try{
             BufferedReader reader = new BufferedReader(new FileReader(path));
             String line;
             while((line = reader.readLine()) != null){
                 String[] parts = line.split(", ");
-                System.out.println(Arrays.toString(parts));
+                //System.out.println(Arrays.toString(parts));
                 getVehicleType(parts);
             }
         } catch (IOException e) {
@@ -76,7 +60,7 @@ public class FileService {
         String type = array[0];
         switch (type){
             case "Car":
-                Car car = new Car(array[1], array[2], array[3], array[4],array[5], array[6]);
+                Car car = new Car(array[1], array[2], array[3], array[4], CarGearType.valueOf((array[5])), CarShape.valueOf(array[6]));
                carList.add(car);
                vehiclesList.add(car);
                 break;
@@ -140,7 +124,6 @@ public class FileService {
            e.printStackTrace();
        }
    }
-
 
 
 }

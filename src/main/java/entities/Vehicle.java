@@ -1,6 +1,5 @@
 package entities;
 
-import java.util.ArrayList;
 
 public class Vehicle {
     private String brand;

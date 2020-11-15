@@ -2,10 +2,11 @@ import entities.Motorcycle;
 import fileReader.FileService;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class Main {
+    private static final String PATH_CONSTANT = "C:\\Users\\apetr\\OneDrive\\Desktop\\vehiclesIO\\src\\main\\resources\\";
+
     public static void main(String[] args) {
        // FileService.readFile("C:\\Users\\apetr\\OneDrive\\Desktop\\vehiclesIO\\src\\main\\resources\\file.txt");
         FileService fileService = new FileService();
@@ -47,16 +48,12 @@ public class Main {
         fileService.iterateList("Choppers", choppers);
 
         /**Ex5. Display each category of vehicles in separate files */
-        fileService.separateFiles("C:\\Users\\apetr\\OneDrive\\Desktop\\vehiclesIO\\src\\main\\resources\\cars.txt",
-                fileService.getCarList());
-        fileService.separateFiles("C:\\Users\\apetr\\OneDrive\\Desktop\\vehiclesIO\\src\\main\\resources\\motorcycles.txt",
-                fileService.getMotorcycleList());
-        fileService.separateFiles("C:\\Users\\apetr\\OneDrive\\Desktop\\vehiclesIO\\src\\main\\resources\\bicycles.txt",
-                fileService.getBicycleList());
-        fileService.separateFiles("C:\\Users\\apetr\\OneDrive\\Desktop\\vehiclesIO\\src\\main\\resources\\boats.txt",
-                fileService.getBoatList());
-        fileService.separateFiles("C:\\Users\\apetr\\OneDrive\\Desktop\\vehiclesIO\\src\\main\\resources\\tractors.txt",
-                fileService.getTractorList());
+
+        fileService.separateFiles( PATH_CONSTANT + "cars.txt", fileService.getCarList());
+        fileService.separateFiles(PATH_CONSTANT + "motorcycles.txt", fileService.getMotorcycleList());
+        fileService.separateFiles(PATH_CONSTANT + "bicycles.txt", fileService.getBicycleList());
+        fileService.separateFiles(PATH_CONSTANT + "boats.txt", fileService.getBoatList());
+        fileService.separateFiles(PATH_CONSTANT + "tractors.txt", fileService.getTractorList());
 
     }
 }

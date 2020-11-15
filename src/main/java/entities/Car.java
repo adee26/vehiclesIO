@@ -4,12 +4,10 @@ import java.util.ArrayList;
 
 public class Car extends Vehicle implements Comparable<Car>{
     private String topSpeed;
-    private String gearType;
-    private String carShape;
-    private ArrayList<Car> carList = new ArrayList<>() ;
+    private CarGearType gearType;
+    private CarShape carShape;
 
-
-    public Car(String brand, String model, String price, String topSpeed, String gearType, String carShape) {
+    public Car(String brand, String model, String price, String topSpeed, CarGearType gearType, CarShape carShape) {
         super(brand, model, price);
         this.topSpeed = topSpeed;
         this.gearType = gearType;
@@ -25,20 +23,20 @@ public class Car extends Vehicle implements Comparable<Car>{
         return this;
     }
 
-    public String getGearType() {
+    public CarGearType getGearType() {
         return gearType;
     }
 
-    public Car setGearType(String gearType) {
+    public Car setGearType(CarGearType gearType) {
         this.gearType = gearType;
         return this;
     }
 
-    public String getCarShape() {
+    public CarShape getCarShape() {
         return carShape;
     }
 
-    public Car setCarShape(String carShape) {
+    public Car setCarShape(CarShape carShape) {
         this.carShape = carShape;
         return this;
     }
