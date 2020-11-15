@@ -1,9 +1,12 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class Vehicle {
     private String brand;
     private String model;
     private String price;
+    private ArrayList<ArrayList<?>> vehiclesList = new ArrayList<>();
 
     public Vehicle(String brand, String model, String price) {
         this.brand = brand;

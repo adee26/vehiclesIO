@@ -6,7 +6,7 @@ public class Main {
         FileService fileService = new FileService();
         fileService.readFileArray("C:\\Users\\apetr\\OneDrive\\Desktop\\vehiclesIO\\src\\main\\resources\\file.txt");
         System.out.println("====================");
-        fileService.printLists();
+        fileService.iterateList("Vehicles", fileService.getVehiclesList());
 
     }
 }

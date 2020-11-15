@@ -1,9 +1,13 @@
 package entities;
 
+import java.util.ArrayList;
+
 public class Car extends Vehicle{
     private String topSpeed;
     private String gearType;
     private String carShape;
+    private ArrayList<Car> carList = new ArrayList<>() ;
+
 
     public Car(String brand, String model, String price, String topSpeed, String gearType, String carShape) {
         super(brand, model, price);

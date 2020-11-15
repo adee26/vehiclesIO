@@ -1,9 +1,6 @@
 package fileReader;
 
-import entities.Bicycle;
-import entities.Car;
-import entities.Motorcycle;
-import entities.Tractor;
+import entities.*;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,6 +8,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 
 public class FileService {
+    private ArrayList<Vehicle> vehiclesList = new ArrayList<>();
     private ArrayList<Car> carList = new ArrayList<>() ;
     private ArrayList<Bicycle> bicycleList = new ArrayList<>();
     private ArrayList<Tractor> tractorList = new ArrayList<>();
@@ -30,6 +28,15 @@ public class FileService {
 
     public  ArrayList<Motorcycle> getMotorcycleList() {
         return motorcycleList;
+    }
+
+    public ArrayList<Vehicle> getVehiclesList() {
+        return vehiclesList;
+    }
+
+    public FileService setVehiclesList(ArrayList<Vehicle> vehiclesList) {
+        this.vehiclesList = vehiclesList;
+        return this;
     }
 
     public static void readFile(String path) {
@@ -66,25 +73,26 @@ public class FileService {
         String type = array[0];
         switch (type){
             case "Car":
-               carList.add(new Car(array[1], array[2], array[3], array[4],array[5], array[6]));
+                Car car = new Car(array[1], array[2], array[3], array[4],array[5], array[6]);
+               carList.add(car);
+               vehiclesList.add(car);
                 break;
             case "Motorcycle":
-                motorcycleList.add(new Motorcycle(array[1], array[2], array[3], array[4],array[5]));
+                Motorcycle motorcycle = new Motorcycle(array[1], array[2], array[3], array[4],array[5]);
+                motorcycleList.add(motorcycle);
+                vehiclesList.add(motorcycle);
                 break;
             case "Bicycle":
-                bicycleList.add(new Bicycle(array[1], array[2], array[3]));
+                Bicycle bicycle = new Bicycle(array[1], array[2], array[3]);
+                bicycleList.add(bicycle);
+                vehiclesList.add(bicycle);
                 break;
             case "Tractor":
-                tractorList.add(new Tractor(array[1], array[2], array[3], array[4]));
+                Tractor tractor = new Tractor(array[1], array[2], array[3], array[4]);
+                tractorList.add(tractor);
+                vehiclesList.add(tractor);
                 break;
         }
-   }
-
-   public void printLists(){
-       iterateList("Bicycles", bicycleList);
-       iterateList("Cars", carList);
-       iterateList("Tractors", tractorList);
-       iterateList("Motorcycles", motorcycleList);
    }
 
    public void iterateList(String title, ArrayList<?> arrayList){
@@ -94,5 +102,6 @@ public class FileService {
            System.out.println(iterator.next());
        }
    }
+
 
 }
