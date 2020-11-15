@@ -3,9 +3,7 @@ package fileReader;
 import entities.*;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
+import java.util.*;
 
 public class FileService {
     private ArrayList<Vehicle> vehiclesList = new ArrayList<>();
@@ -13,30 +11,35 @@ public class FileService {
     private ArrayList<Bicycle> bicycleList = new ArrayList<>();
     private ArrayList<Tractor> tractorList = new ArrayList<>();
     private ArrayList<Motorcycle> motorcycleList = new ArrayList<>();
-
-    public  ArrayList<Car> getCarList() {
-        return carList;
-    }
-
-    public  ArrayList<Bicycle> getBicycleList() {
-        return bicycleList;
-    }
-
-    public  ArrayList<Tractor> getTractorList() {
-        return tractorList;
-    }
-
-    public  ArrayList<Motorcycle> getMotorcycleList() {
-        return motorcycleList;
-    }
+    private ArrayList<Boat> boatList = new ArrayList<>();
+    private HashMap<String, Integer> brandNumber = new HashMap<>();
 
     public ArrayList<Vehicle> getVehiclesList() {
         return vehiclesList;
     }
 
-    public FileService setVehiclesList(ArrayList<Vehicle> vehiclesList) {
-        this.vehiclesList = vehiclesList;
-        return this;
+    public ArrayList<Car> getCarList() {
+        return carList;
+    }
+
+    public ArrayList<Bicycle> getBicycleList() {
+        return bicycleList;
+    }
+
+    public ArrayList<Tractor> getTractorList() {
+        return tractorList;
+    }
+
+    public ArrayList<Motorcycle> getMotorcycleList() {
+        return motorcycleList;
+    }
+
+    public ArrayList<Boat> getBoatList() {
+        return boatList;
+    }
+
+    public HashMap<String, Integer> getBrandNumber() {
+        return brandNumber;
     }
 
     public static void readFile(String path) {
@@ -92,6 +95,11 @@ public class FileService {
                 tractorList.add(tractor);
                 vehiclesList.add(tractor);
                 break;
+            case "Boat":
+                Boat boat = new Boat(array[1], array[2], array[3], array[4]);
+                boatList.add(boat);
+                vehiclesList.add(boat);
+                break;
         }
    }
 
@@ -102,6 +110,37 @@ public class FileService {
            System.out.println(iterator.next());
        }
    }
+
+   public int getVehiclesNumber(ArrayList<?> arrayList){
+        return arrayList.size();
+   }
+
+   public void countBrandNumber(){
+       for (Vehicle vehicle: vehiclesList) {
+           if(brandNumber.get(vehicle.getBrand()) == null){
+               brandNumber.put(vehicle.getBrand(), 1);
+           }else{
+               int count = brandNumber.get(vehicle.getBrand());
+               brandNumber.put(vehicle.getBrand(), count+1);
+           }
+       }
+
+       for (Map.Entry<String, Integer> entry: brandNumber.entrySet()){
+           System.out.println(entry.getKey() + " = " + entry.getValue());
+       }
+   }
+
+   public void separateFiles(String path, ArrayList<?> arrayList){
+       try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(path))){
+           for(Iterator<?> iterator = arrayList.iterator(); iterator.hasNext(); ){
+             bufferedWriter.write(String.valueOf(iterator.next()));
+             bufferedWriter.write("\n");
+           }
+       } catch (IOException e) {
+           e.printStackTrace();
+       }
+   }
+
 
 
 }

@@ -1,0 +1,2 @@
+Boat{brand='Princess', model='V48', price='507000'horsePower='435HP'}
+Boat{brand='Princess', model='V45', price='300000'horsePower='435HP'}

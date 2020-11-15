@@ -1,6 +1,6 @@
 package entities;
 
-public class Motorcycle extends Vehicle{
+public class Motorcycle extends Vehicle implements Comparable<Motorcycle>{
     private String topSpeed;
     private String motorcycleShape;
 
@@ -34,5 +34,10 @@ public class Motorcycle extends Vehicle{
                 "topSpeed='" + topSpeed + '\'' +
                 ", motorcycleShape='" + motorcycleShape + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Motorcycle motorcycle) {
+        return Integer.parseInt(this.getTopSpeed()) - Integer.parseInt(motorcycle.getTopSpeed());
     }
 }

@@ -1,0 +1,3 @@
+Tractor{brand='BMW', model='P180', price='28000'cylindricalCapacity='3500'}
+Tractor{brand='John Deer', model='T200', price='31000'cylindricalCapacity='5000'}
+Tractor{brand='Ferarri', model='X23', price='unknown'cylindricalCapacity='2000'}

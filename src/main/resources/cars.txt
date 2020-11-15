@@ -1,0 +1,5 @@
+Car{brand='Honda', model='Civic', price='13000'topSpeed='180', gearType='MANUAL', carShape='COUPE'}
+Car{brand='Volkswagen', model='Passat', price='18000'topSpeed='200', gearType='MANUAL', carShape='SEDAN'}
+Car{brand='Mercedes', model='C180', price='20000'topSpeed='220', gearType='AUTOMATIC', carShape='SEDAN'}
+Car{brand='BMW', model='3', price='22500'topSpeed='240', gearType='MANUAL', carShape='WAGON'}
+Car{brand='Mercedes', model='C230', price='25000'topSpeed='240', gearType='AUTOMATIC', carShape='COUPE'}

@@ -1,0 +1,1 @@
+brand='Giant', model='T1X', price='1200'

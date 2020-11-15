@@ -2,7 +2,7 @@ package entities;
 
 import java.util.ArrayList;
 
-public class Car extends Vehicle{
+public class Car extends Vehicle implements Comparable<Car>{
     private String topSpeed;
     private String gearType;
     private String carShape;
@@ -50,5 +50,11 @@ public class Car extends Vehicle{
                 ", gearType='" + gearType + '\'' +
                 ", carShape='" + carShape + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(Car car) {
+        return Integer.parseInt(this.getPrice()) - Integer.parseInt(car.getPrice());
     }
 }
